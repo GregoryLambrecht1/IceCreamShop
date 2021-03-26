@@ -11,12 +11,19 @@ public class IceCreamAppV2 {
 
             IceCreamCar iceCreamCar = new IceCreamCar(priceList,stock);
 
-            iceCreamCar.orderMagnum(Magnum.MagnumType.ALIPINENUTS);
-            iceCreamCar.orderMagnum(Magnum.MagnumType.WHITECHOCOLATE);
-            iceCreamCar.orderMagnum(Magnum.MagnumType.BLACKCHOCOLATE);
+            Eatable order01 = iceCreamCar.orderMagnum(Magnum.MagnumType.ALIPINENUTS);
+            Eatable order02 = iceCreamCar.orderMagnum(Magnum.MagnumType.WHITECHOCOLATE);
+            Eatable order03 = iceCreamCar.orderMagnum(Magnum.MagnumType.BLACKCHOCOLATE);
+            
+            Eatable[] orders = new Eatable[]{
+                   order01, order02, order03
+            };
+            
+            // TODO: eat() for each orders..
 
 
         } catch (NoMoreIceCreamException | NullException n){
+            // TODO: choose one of these approaches..
             System.out.println(n.getMessage());
             n.printStackTrace();
         }
