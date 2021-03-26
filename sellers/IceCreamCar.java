@@ -4,8 +4,9 @@ import icecreamshop.eatables.Cone;
 import icecreamshop.eatables.IceRocket;
 import icecreamshop.eatables.Magnum;
 public class IceCreamCar implements IceCreamSeller{
-    private PriceList priceList;
-    private Stock stock;
+    
+    private final PriceList priceList;
+    private final Stock stock;
     private double profit;
 
     public IceCreamCar(PriceList priceList, Stock stock) {
@@ -52,6 +53,10 @@ public class IceCreamCar implements IceCreamSeller{
                 stock.setBalls(stock.getBalls() - 1);
             }
         }
+        
+        // TODO: stock.setBalls(stock.getBalls() - flavor.length);
+        // TODO: validation checking if stocks are greater then flavors.length.. 
+        
         return new Cone(flavors);
     }
 
@@ -59,12 +64,13 @@ public class IceCreamCar implements IceCreamSeller{
     @Override
     public IceRocket orderIceRocket() throws NoMoreIceCreamException{
         profit += priceList.getRocketPrice();
-        ;
+        ; // TODO: delete
         return this.prepareRocket();
     }
 
     @Override
     public Magnum orderMagnum(Magnum.MagnumType types) throws NoMoreIceCreamException,NullException {
+        // TODO: null check first..
         if (stock.getMagni() <= 0) throw new NoMoreIceCreamException("magnums are out of stock");
         if (types == null) throw new NullException("magnumtype is null");
         this.profit += types.getPrice();
@@ -79,7 +85,7 @@ public class IceCreamCar implements IceCreamSeller{
 
     private Magnum prepareMagnum(Magnum.MagnumType types) throws NoMoreIceCreamException {
         stock.setMagni(stock.getMagni() -1);
-        return new Magnum();
+        return new Magnum();  // TODO: type as parameter.. 
     }
 
 
