@@ -14,14 +14,26 @@ public class Cone implements Eatable {
         PISTACHE
     }
 
+        // TODO:   private Flavor[] balls  = new Flavor[1];
+
+    
     private Flavor[] balls  = new Flavor[8];
 
     public Cone() {
 
     }
+   
 
     public Cone(Flavor[] balls) {
         this.balls = balls;
+    }
+    
+    public addFlavor(Flavor ball){
+        // TODO: add flavor to the array.. 
+    }
+    
+    public removeFlavor(Flavor ball){
+        // TODO: remove flavor to the array.. 
     }
 
     @Override
@@ -31,7 +43,10 @@ public class Cone implements Eatable {
         for (int i = 0; i < balls.length; i++) {
             if (balls[i] != null) {
                 System.out.print(balls[i] + " , ");
+                // MessageFormatter.format();
             }
         }
+        
+        // TODO: String.join();
     }
 }
